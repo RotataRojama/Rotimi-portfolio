@@ -1,0 +1,1146 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300&family=Plus+Jakarta+Sans:wght@200&display=swap");
+
+//Mixins
+@mixin flex-container($direction, $width, $height) {
+    display: flex;
+    flex-direction: $direction;
+    width: $width;
+    height: $height;
+}
+@mixin projectHeaderActive($background, $color) {
+    width: 200px;
+    height: 60px;
+    border-radius: 167px;
+    background-color: $background;
+    color: $color;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 79px;
+    margin-left: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-family: "Jost", sans-serif;
+}
+@mixin projectHeader($border, $color) {
+    width: 200px;
+    height: 60px;
+    border-radius: 167px;
+    border: $border;
+    color: $color;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 79px;
+    margin-left: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-family: "Jost", sans-serif;
+}
+@mixin suHeader($border, $color) {
+    width: 223px;
+    height: 60px;
+    border-radius: 167px;
+    border: $border;
+    color: $color;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 79px;
+    margin-left: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+@mixin suHeaderActive($background, $color) {
+    width: 223px;
+    height: 60px;
+    border-radius: 167px;
+    background-color: $background;
+    color: $color;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 79px;
+    margin-left: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+@mixin flower() {
+    width: 247px;
+    height: 235px;
+    position: absolute;
+    rotate: 0deg;
+    top: 2552px;
+}
+@mixin fallingObject() {
+    width: 90%;
+    height: 50px;
+    justify-content: center;
+    display: flex;
+    background-color: #404268;
+    color: white;
+    align-items: center;
+    font-family: "Jost", sans-serif;
+}
+@mixin cmHeader($border, $color) {
+    width: 223px;
+    height: 60px;
+    border-radius: 167px;
+    border: $border;
+    color: $color;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 79px;
+    margin-left: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+@mixin cmHeaderActive($background, $color) {
+    width: 223px;
+    height: 60px;
+    border-radius: 167px;
+    background-color: $background;
+    color: $color;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 79px;
+    margin-left: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+@mixin Input($border, $color, $padding) {
+    border: 0;
+    border-bottom: $border;
+    background: inherit;
+    width: 400px;
+    font-size: 20px;
+    padding: $padding;
+    color: $color;
+}
+@mixin checkBox($border, $color) {
+    display: flex;
+    width: 120px;
+    height: 40px;
+    border-radius: 45px;
+    border: $border;
+    color: $color;
+    font-size: 14px;
+    justify-content: center;
+}
+@mixin button($background, $color) {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    background: $background;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 60px;
+    color: $color;
+    border: unset;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+}
+
+//Parent
+.parentContainer {
+    width: 100%;
+    height: 4000px;
+    cursor: pointer;
+}
+.darkModeParent {
+    background: rgba(24, 30, 34, 1);
+}
+.lightModeParent {
+    background: #fff;
+}
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(20deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+//HEADER
+.header {
+    @include flex-container(row, 100%, 132px);
+    align-items: center;
+    gap: 24.3%;
+    background: inherit;
+    position: fixed;
+    z-index: 20;
+    cursor: pointer;
+}
+.logo {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    align-items: baseline;
+    order: 0;
+}
+.ar {
+    color: rgba(64, 66, 104, 1);
+    width: 60.9px;
+    font-size: 42px;
+    font-weight: 800;
+    display: flex;
+    font-family: "Jost", sans-serif;
+    order: 0;
+    margin-left: 100px;
+}
+.logoDesign {
+    @include flex-container(row, 4px, 12px);
+    border-radius: 20px;
+    border: 1px solid rgba(64, 66, 104, 1);
+    order: 1;
+}
+.navigationContainer {
+    @include flex-container(row, 397px, 28px);
+    gap: 30px;
+    order: 1;
+    a {
+        text-decoration: unset;
+        color: unset;
+    }
+}
+.about,
+.ncProjects,
+.stack,
+.contact,
+.mode {
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 27.46px;
+    color: rgba(64, 66, 104, 1);
+}
+.toggle {
+    @include flex-container(row, 71px, 27px);
+    gap: 8px;
+    order: 2;
+}
+.mode {
+    order: 0;
+}
+.darkModeText {
+    color: white;
+}
+.lightModeText {
+    color: rgba(64, 66, 104, 1);
+}
+.toggleIcon {
+    width: 24px;
+    height: 24px;
+    order: 1;
+}
+//BODY
+.introduction {
+    @include flex-container(row, 100%, 920px);
+    align-items: center;
+}
+.biographyContainer {
+    @include flex-container(column, 62.2%, 653.27px);
+    align-items: flex-start;
+    gap: 20px;
+    order: 0;
+}
+.bio1 {
+    font-family: "Jost", sans-serif;
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 45px;
+    padding-left: 80px;
+}
+.wavingHandsIcon {
+    width: 50px;
+    height: 40px;
+    animation: wave 2s ease-in-out infinite;
+}
+.bio2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 180px;
+    font-weight: 700;
+    font-size: 200px;
+    padding-left: 70px;
+    font-family: "Jost", sans-serif;
+}
+.outerO {
+    display: flex;
+    align-items: center;
+    width: 224px;
+    height: 112px;
+    border-radius: 253px;
+    border: 5px solid #404268;
+    margin-top: 45px;
+}
+.darkModeBorder {
+    border: 5px solid #fff;
+}
+.lightModeBorder2 {
+    border: 30px solid #404268;
+}
+.darkModeBorder2 {
+    border: 30px solid #fff;
+}
+.innerO {
+    width: 150px;
+    height: 37px;
+    display: flex;
+    border-radius: 197px;
+    margin-left: 7px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 35.33px;
+    justify-content: center;
+    font-family: "Jost", sans-serif;
+}
+.bio3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 80px;
+    gap: 20px;
+}
+.importer,
+.exporter,
+.designer {
+    font-family: "Jost", sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+    color: #797b95;
+    line-height: 46px;
+    text-decoration: line-through;
+    text-transform: uppercase;
+}
+.developer {
+    font-family: "Jost", sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+    text-transform: uppercase;
+    line-height: 46px;
+}
+.tickIcon {
+    width: 20px;
+    height: 20px;
+    padding-left: 3px;
+}
+.bio4 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 400;
+    line-height: 30px;
+    margin-left: 80px;
+    text-align: justify;
+    width: 90%;
+}
+.profilePicture {
+    display: flex;
+    width: 340px;
+    height: 500.27px;
+    margin-left: 15%;
+}
+.pictureContainer {
+    width: 35%;
+    order: 1;
+    display: flex;
+}
+//ScrollDown
+.scrollDown {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 28px;
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    height: 60px;
+    position: absolute;
+    right: 220px;
+    top: 950px;
+}
+.arrowDownIcon {
+    width: 15px;
+    height: 20px;
+    padding-left: 37px;
+}
+
+//projects
+.projects {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1100px;
+    gap: 50px;
+}
+.projectHeaderActive {
+    @include projectHeaderActive(#404268, #fff);
+}
+.projectHeaderActive1 {
+    @include projectHeaderActive(#fff, rgba(24, 30, 34, 1));
+}
+.projectHeader {
+    @include projectHeader(1px solid #404268, #404268);
+}
+.projectHeader1 {
+    @include projectHeader(1px solid #fff, #fff);
+}
+.projectBody {
+    order: 1;
+    width: 100%;
+    height: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.pbRow1 {
+    display: flex;
+    flex-direction: row;
+    gap: 6%;
+    margin-left: 80px;
+    overflow: scroll;
+}
+.pbRow2 {
+    display: flex;
+    order: 1;
+    margin-left: 80px;
+}
+
+.plMainContainer {
+    width: 28%;
+    height: 385px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    background-color: #f7f8fa;
+    align-items: center;
+    gap: 10px;
+    padding-top: 35px;
+    transition: transform 1s ease-in;
+    &:hover {
+        transform: scale(1.05);
+        border-radius: 26px;
+        background: #586294;
+        color: #fff;
+        height: 405px;
+
+        .plImage {
+            width: 93%;
+            height: 150px;
+        }
+        .projectName,
+        .plDescriptionText,
+        .plReact {
+            color: #fff;
+        }
+        .rectangleDesign {
+            border: #fff;
+        }
+        .plViewProject {
+            background: #fff;
+            font-size: 13px;
+            font-weight: 500;
+            width: 120px;
+
+            a {
+                color: #404268;
+            }
+        }
+        .plViewProject svg path {
+            fill: white;
+            stroke: rgba(64, 66, 104, 1);
+            transition:
+                fill 0.3s,
+                stroke 0.3s;
+        }
+    }
+}
+.plImage {
+    display: flex;
+    width: 90%;
+    height: 135px;
+    order: 0;
+    border-radius: 106px;
+}
+.plDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    gap: 5px;
+    padding-left: 35px;
+    padding-right: 15px;
+    height: 405px;
+}
+.projectName {
+    display: flex;
+    order: 0;
+    font-family: "Jost", sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 45px;
+    height: 45px;
+    color: rgba(64, 66, 104, 1);
+}
+.plStacks {
+    display: flex;
+    flex-direction: row;
+    order: 1;
+    width: 100%;
+    height: 15px;
+    gap: 10px;
+}
+.plReact {
+    display: flex;
+    height: 15px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    font-size: 12px;
+    color: rgba(64, 66, 104, 1);
+    align-items: center;
+}
+.rectangleDesign {
+    width: 2px;
+    height: 4px;
+    border-radius: 8px;
+    border: 0.3px solid rgba(64, 66, 104, 1);
+    margin-left: 5px;
+}
+.plDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: 115px;
+    order: 2;
+    text-align: justify;
+}
+.plDescriptionText {
+    display: flex;
+    order: 0;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    color: rgba(64, 66, 104, 1);
+}
+.plViewProject {
+    display: flex;
+    padding: 9px 2px 2px 12px;
+    justify-content: center;
+    font-size: 12px;
+    width: 110px;
+    height: 34px;
+    border-radius: 55px;
+    background: rgba(64, 66, 104, 1);
+    border: unset;
+    font-family: "Jost", sans-serif;
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+    order: 2;
+}
+.arrowRight {
+    width: 20px;
+    height: 20px;
+}
+
+//stacks used
+.stacksUsed {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 700px;
+}
+
+.suHeader {
+    @include suHeader(1px solid #404268, #404268);
+}
+.suHeaderActive {
+    @include suHeaderActive(#404268, #fff);
+}
+.suHeader1 {
+    @include suHeader(1px solid #fff, #fff);
+}
+.suHeaderActive1 {
+    @include suHeaderActive(#fff, rgba(24, 30, 34, 1));
+}
+
+//Stacks.js
+.fallingObject1 {
+    @include fallingObject();
+}
+.fallingObject2 {
+    @include fallingObject();
+    rotate: 4deg;
+    margin-left: 115px;
+}
+.fallingObject3 {
+    @include fallingObject();
+    margin: 0 75px 5px 0;
+}
+.fallingObject4 {
+    @include fallingObject();
+    margin-left: 250px;
+    rotate: 10deg;
+}
+.fallingObject5 {
+    @include fallingObject();
+    rotate: -18deg;
+    margin-right: 237px;
+}
+.b {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    order: 1;
+}
+.c {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    height: 100%;
+    margin-left: 30%;
+    align-items: center;
+    margin-left: 30%;
+}
+.flowerL {
+    @include flower();
+    left: 0px;
+}
+.flowerR {
+    @include flower();
+    right: 0px;
+}
+
+//CONTACT ME
+.contactMe {
+    width: 100%;
+    height: 800px;
+    display: flex;
+}
+.contactMeContainer {
+    width: 100%;
+    height: 780px;
+    display: flex;
+    margin-top: 30px;
+}
+.cmLightMode {
+    background: rgba(221, 223, 233, 0.23);
+}
+.cmDarkMode {
+    background: inherit;
+}
+.footerDesign {
+    opacity: 50%;
+    width: 490px;
+    height: 340px;
+    position: absolute;
+    top: 3355px;
+    left: 80px;
+}
+.cmHeader {
+    @include cmHeader(1px solid #404268, #404268);
+}
+.cmHeaderActive {
+    @include cmHeaderActive(#404268, #fff);
+}
+.cmHeader1 {
+    @include cmHeader(1px solid #fff, #fff);
+}
+.cmHeaderActive1 {
+    @include cmHeaderActive(#fff, rgba(24, 30, 34, 1));
+}
+.cmIntroContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    height: 260px;
+    width: 650px;
+    margin-left: 80px;
+    margin-top: 100px;
+}
+.cmIntroHeader {
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 120px;
+    font-family: "Jost", sans-serif;
+    display: flex;
+    order: 0;
+}
+.cmIntroText {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 30px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    order: 1;
+    text-align: justify;
+}
+.cmIconsContainer {
+    display: flex;
+    flex-direction: row;
+    order: 2;
+    gap: 15px;
+    width: 150px;
+    height: 40px;
+}
+.cmIcon {
+    width: 30px;
+    height: 30px;
+}
+.cmFormContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 600px;
+    height: 500px;
+    margin: 141px 0 0 35px;
+}
+
+//ContactForm
+.emailLabel {
+    font-size: 24px;
+    font-weight: 400;
+    width: 300px;
+    text-align: initial;
+    font-family: "Jost", sans-serif;
+}
+.emailInput {
+    @include Input(1px solid rgba(64, 66, 104, 1), rgba(64, 66, 104, 1), 0 0 8px 6px);
+}
+.inputDarkMode {
+    @include Input(1px solid #fff, #fff, 0 0 8px 6px);
+}
+.emailInput::placeholder,
+.messageInput::placeholder {
+    color: rgba(64, 66, 104, 1);
+    opacity: 10%;
+}
+.inputDarkMode::placeholder,
+.messageInputDark::placeholder {
+    color: white;
+}
+.emailInput:focus-visible,
+.messageInput:focus-visible,
+.inputDarkMode:focus-visible,
+.messageInputDark:focus-visible {
+    outline: unset;
+}
+.cmCheckboxHeader {
+    font-size: 24px;
+    font-weight: 400;
+    font-family: "Jost", sans-serif;
+    display: flex;
+    align-items: initial;
+}
+.cmCheckbox {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.checkbox-container {
+    @include checkBox(1px solid rgba(64, 66, 104, 1), rgba(64, 66, 104, 1));
+}
+.checkbox-container-dark {
+    @include checkBox(1px solid #fff, #fff);
+}
+.checkboxLabel {
+    padding: 10px 0 0 0;
+}
+.checkbox-icon {
+    padding: 10px 0 0 5px;
+}
+.active {
+    color: rgba(247, 248, 250, 1);
+    background: rgba(64, 66, 104, 1);
+}
+.activeDark {
+    color: rgba(24, 30, 34, 1);
+    background: white;
+}
+.messageInput {
+    @include Input(1px solid rgba(64, 66, 104, 1), rgba(64, 66, 104, 1), 0 0 0 6px);
+}
+.messageInputDark {
+    @include Input(1px solid #fff, #fff, 0 0 0 6px);
+}
+.messageLabel {
+    font-family: "Jost", sans-serif;
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: 400;
+    width: 300px;
+    text-align: initial;
+}
+.cfButton {
+    @include button(rgba(64, 66, 104, 1), #fff);
+}
+.cfButtonDark {
+    @include button(#fff, rgba(24, 30, 34, 1));
+}
+.cfButton:hover {
+    background: rgba(91, 93, 149, 1);
+}
+.cfButtonDark:hover {
+    color: rgba(24, 30, 34, 0.8);
+}
+.cfButton:active,
+.cfButtonDark:active {
+    transform: scale(0.95);
+}
+@media (max-width: 1250px) {
+    .projectName {
+        font-size: 17px;
+    }
+    .plMainContainer:hover {
+        height: 395px;
+    }
+    .cmIntroHeader {
+        font-size: 40px;
+    }
+    .cmIntroContainer {
+        gap: 20px;
+        height: 295px;
+    }
+    @media (max-width: 1100px) {
+        .ar {
+            margin-left: 70px;
+        }
+        .biographyContainer {
+            gap: 2px;
+        }
+        .bio1 {
+            padding-left: 50px;
+            font-size: 35px;
+        }
+        .wavingHandsIcon {
+            width: 40px;
+            height: 30px;
+        }
+        .bio2 {
+            padding-left: 40px;
+            font-size: 165px;
+        }
+        .outerO {
+            width: 168px;
+            height: 85px;
+            margin-top: 30px;
+        }
+        .innerO {
+            width: 110px;
+            height: 30px;
+            font-size: 13px;
+            line-height: 27.33px;
+        }
+        .lightModeBorder2 {
+            border: 22px solid #404268;
+        }
+        .darkModeBorder2 {
+            border: 22px solid #fff;
+        }
+        .bio3,
+        .bio4,
+        .projectHeader,
+        .projectHeader1,
+        .projectHeaderActive,
+        .projectHeaderActive1,
+        .pbRow1,
+        .pbRow2,
+        .suHeader,
+        .suHeader1,
+        .suHeaderActive,
+        .suHeaderActive1,
+        .cmHeader,
+        .cmHeader1,
+        .cmHeaderActive,
+        .cmHeaderActive1,
+        .cmIntroContainer {
+            margin-left: 50px;
+        }
+        .importer,
+        .exporter,
+        .designer,
+        .developer {
+            font-size: 20px;
+        }
+        .tickIcon {
+            width: 15px;
+            height: 15px;
+        }
+        .profilePicture {
+            width: 320px;
+            height: 450.27px;
+            margin-left: 10%;
+        }
+        .c {
+            width: 31%;
+        }
+        .footerDesign {
+            left: 50px;
+        }
+        .checkbox-container,
+        .checkbox-container-dark {
+            width: 100px;
+            height: 35px;
+            font-size: 12px;
+        }
+        .projectName {
+            font-size: 15px;
+        }
+        .plMainContainer:hover {
+            height: 375px;
+        }
+        @media (max-width: 1000px) {
+            .biographyContainer {
+                width: 100%;
+                gap: 10px;
+            }
+            .pictureContainer {
+                width: 0%;
+            }
+            .profilePicture {
+                width: 250px;
+                height: 275.27px;
+                position: absolute;
+                top: 285px;
+                right: 35px;
+            }
+            .plMainContainer {
+                width: 31%;
+            }
+            .pbRow1 {
+                gap: 2%;
+            }
+            .footerDesign {
+                width: 40%;
+            }
+            .cmIntroHeader {
+                font-size: 30px;
+            }
+            .cmIntroContainer {
+                gap: 15px;
+                height: 335px;
+            }
+            .cmIntroText {
+                font-size: 14px;
+            }
+            @media (max-width: 860px) {
+                .ar {
+                    margin-left: 50px;
+                }
+                .bio1 {
+                    padding-left: 30px;
+                }
+                .bio2 {
+                    padding-left: 20px;
+                }
+                .bio3,
+                .bio4,
+                .projectHeader,
+                .projectHeader1,
+                .projectHeaderActive,
+                .projectHeaderActive1,
+                .pbRow1,
+                .pbRow2,
+                .suHeader,
+                .suHeader1,
+                .suHeaderActive,
+                .suHeaderActive1,
+                .cmHeader,
+                .cmHeader1,
+                .cmHeaderActive,
+                .cmHeaderActive1,
+                .cmIntroContainer {
+                    margin-left: 30px;
+                }
+                @media (max-width: 840px) {
+                    .profilePicture {
+                        display: none;
+                    }
+                    .introduction {
+                        height: 660px;
+                    }
+                    .biographyContainer {
+                        gap: 0px;
+                        height: 400px;
+                    }
+                    .bio1 {
+                        font-size: 25px;
+                    }
+                    .bio2 {
+                        line-height: 100px;
+                        font-size: 105px;
+                    }
+                    .wavingHandsIcon {
+                        width: 25px;
+                        height: 20px;
+                    }
+                    .outerO {
+                        width: 115px;
+                        height: 50px;
+                        margin-top: 20px;
+                        border: 3px solid #404268;
+                    }
+                    .darkModeBorder {
+                        border: 3px solid #fff;
+                    }
+                    .innerO {
+                        width: 94px;
+                        height: 30px;
+                        font-size: 11px;
+                        line-height: 27.33px;
+                        margin-left: 3px;
+                    }
+                    .lightModeBorder2 {
+                        border: 8px solid #404268;
+                    }
+                    .darkModeBorder2 {
+                        border: 8px solid #fff;
+                    }
+                    .bio3 {
+                        height: 40px;
+                        gap: 7px;
+                    }
+                    .tickIcon {
+                        width: 12px;
+                        height: 12px;
+                    }
+                    .designer,
+                    .developer,
+                    .exporter,
+                    .importer {
+                        font-size: 14px;
+                    }
+                    .bio4 {
+                        line-height: 22px;
+                        font-size: 13px;
+                        width: 86%;
+                    }
+                    .scrollDown {
+                        right: 40px;
+                        top: 725px;
+                    }
+                    .projectHeader,
+                    .projectHeader1,
+                    .projectHeaderActive,
+                    .projectHeaderActive1,
+                    .cmHeader,
+                    .cmHeader1,
+                    .cmHeaderActive,
+                    .cmHeaderActive1,
+                    .suHeader,
+                    .suHeader1,
+                    .suHeaderActive,
+                    .suHeaderActive1 {
+                        width: 150px;
+                        height: 45px;
+                        font-size: 20px;
+                    }
+                    .footerDesign {
+                        display: none;
+                    }
+                    .contactMeContainer {
+                        flex-direction: column;
+                        margin-top: 23px;
+                    }
+                    .cmIntroContainer {
+                        width: 90%;
+                        margin-top: 45px;
+                    }
+                    .cmIntroHeader {
+                        line-height: 50px;
+                    }
+                    .cmFormContainer {
+                        margin: 0 0 0 0px;
+                        gap: 5px;
+                        width: 100%;
+                    }
+                    .emailInput,
+                    .messageInput {
+                        width: 350px;
+                        font-size: 18px;
+                        margin-left: 30px;
+                    }
+                    .emailLabel, .messageLabel {
+                        padding-left: 30px;
+                    }
+                    .cfButton {
+                        margin-top: 35px;
+                        width: 150px;
+                        height: 40px;
+                        margin: 30px;
+                    }
+                    .cmCheckbox {
+                        gap: 5px;
+                        padding-left: 30px;
+                    }
+                    .checkbox-container,
+                    .checkbox-container-dark {
+                        width: 85px;
+                        height: 25px; 
+                        font-size: 10px;
+                    }
+                    .cmCheckboxHeader {
+                        padding-left: 30px;
+                    }
+                    .checkbox-icon {
+                        padding: 5px 0 0 5px;
+                    }
+                    .checkboxLabel {
+                        padding: 5px 0 0 0;
+                    }
+                    .flowerL,
+                    .flowerR {
+                        width: 135px;
+                        height: 190px;
+                        top: 2160px;
+                    }
+                    .fallingObject1, .fallingObject2, .fallingObject3, .fallingObject4, .fallingObject5 {
+                        height: 35px;
+                        width: 80%;
+                    }
+                    .stacksUsed {
+                        height: 470px;
+                    }
+                    .plDetailsContainer {
+                        gap: 15px;
+                        padding-left: 15px;
+                    }
+                    .plReact {
+                        font-weight: 500;
+                        font-size: 11px;
+                    }
+                    .plStacks {
+                        gap: 2px;
+                    }
+                    .projectName {
+                        font-size: 12px;
+                        font-weight: bolder;
+                    }
+                    .plMainContainer {
+                        transform: scale(1);
+                        min-width: 252px;
+                    }
+                    .plMainContainer:hover {
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+    }
+}
