@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import './index.scss';
+import axios from 'axios';
 
 function ContactForm(props) {
   const { isDarkMode } = props;
@@ -46,7 +47,7 @@ function ContactForm(props) {
   return (
     <>
       {showSuccess ? (
-        <div className="success-notification">Form submitted successfully!</div>
+        <div className={`success-notification ${isDarkMode ? 'darkModeText' : 'lightModeText'}`}>Form submitted successfully!</div>
       ) : (
         <form
           onSubmit={async (e) => {
@@ -73,25 +74,22 @@ function ContactForm(props) {
             });
 
             try {
-              const response = await fetch('https://formspree.io/f/mgejzkey', {
-                method: 'POST',
-                body: formData,
-                headers: {
+                const response = await axios.post('https://formspree.io/f/mgejzkey', formData, {
                   // Include any necessary headers here
-                },
-              });
-              if (!response.ok) {
-                throw new Error(`Formspree error: ${response.statusText}`);
+                });
+            
+                if (response.status === 200) {
+                  // Handle the success response or redirect if needed
+                  console.log('Form submitted successfully');
+            
+                  // Call the success handler
+                  handleSuccess();
+                } else {
+                  throw new Error(`Formspree error: ${response.statusText}`);
+                }
+              } catch (error) {
+                console.error('Form submission error:', error);
               }
-
-              // Handle the success response or redirect if needed
-              console.log('Form submitted successfully');
-
-              // Call the success handler
-              handleSuccess();
-            } catch (error) {
-              console.error('Form submission error:', error);
-            }
           }}
           className='cmFormContainer'
         >
