@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './index.scss';
 import Stacks from './stacks';
 import ContactForm from './contactForm';
@@ -44,10 +44,10 @@ function Index() {
     const controls = useAnimation();
     const timerControls = useAnimation();
 
-    const startAnimation = async () => {
+    const startAnimation = useCallback(async () => {
         await controls.start({ y: 20, opacity: 0.7, transition: { duration: 1, ease: 'easeInOut' } });
         await controls.start({ y: 0, opacity: 1, transition: { duration: 0 } });
-    };
+    }, [controls]);
 
     useEffect(() => {
         const interval = setInterval(startAnimation, 2000);
@@ -58,7 +58,7 @@ function Index() {
             clearInterval(interval);
             clearTimeout(timerId);
         };
-    }, []);
+    }, [startAnimation, timerControls]);
 
     const styles = {
         paddingTop: '105px',

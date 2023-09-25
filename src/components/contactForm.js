@@ -4,7 +4,7 @@ import './index.scss';
 
 function ContactForm(props) {
   const { isDarkMode } = props;
-  const [state, handleSubmit] = useForm("mgejzkey");
+  const [state] = useForm("mgejzkey");
   const [selectedItems, setSelectedItems] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false); // Track success notification
 
@@ -26,66 +26,75 @@ function ContactForm(props) {
     }
   };
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
+  const handleSuccess = () => {
+    // Display success notification
+    setShowSuccess(true);
 
-    const emailInput = e.target.querySelector('#email');
-    const messageInput = e.target.querySelector('#message');
+    // Clear the input fields and deselect the containers
+    const emailInput = document.querySelector('#email');
+    const messageInput = document.querySelector('#message');
+    emailInput.value = '';
+    messageInput.value = '';
+    setSelectedItems([]);
 
-    if (!emailInput.checkValidity()) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
-    // Validate message input
-    if (messageInput.value.trim() === '') {
-      alert('Please enter a message.');
-      return;
-    }
-
-    // Construct the form data including selectedItems
-    const formData = new FormData(e.target);
-    selectedItems.forEach((item) => {
-      formData.append('selectedItems[]', item);
-    });
-
-    try {
-      const response = await fetch('https://formspree.io/f/mgejzkey', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          // Include any necessary headers here
-        },
-      });
-      if (!response.ok) {
-        throw new Error(`Formspree error: ${response.statusText}`);
-      }
-
-      // Handle the success response or redirect if needed
-      console.log('Form submitted successfully');
-
-      // Display success notification
-      setShowSuccess(true);
-
-      // Clear the input fields and deselect the containers
-      emailInput.value = '';
-      messageInput.value = '';
-      setSelectedItems([]);
-
-      // Hide success notification after a few seconds (adjust timeout as needed)
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 3000);
-    } catch (error) {
-      console.error('Form submission error:', error);
-    }
+    // Hide success notification after a few seconds (adjust timeout as needed)
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
   };
-    return (
-        <>
-        {showSuccess ? (
+
+  return (
+    <>
+      {showSuccess ? (
         <div className="success-notification">Form submitted successfully!</div>
       ) : (
-        <form onSubmit={handleFormSubmit} className='cmFormContainer'>
+        <form
+          onSubmit={async (e) => {
+            e.preventDefault();
+
+            const emailInput = e.target.querySelector('#email');
+            const messageInput = e.target.querySelector('#message');
+
+            if (!emailInput.checkValidity()) {
+              alert('Please enter a valid email address.');
+              return;
+            }
+
+            // Validate message input
+            if (messageInput.value.trim() === '') {
+              alert('Please enter a message.');
+              return;
+            }
+
+            // Construct the form data including selectedItems
+            const formData = new FormData(e.target);
+            selectedItems.forEach((item) => {
+              formData.append('selectedItems[]', item);
+            });
+
+            try {
+              const response = await fetch('https://formspree.io/f/mgejzkey', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                  // Include any necessary headers here
+                },
+              });
+              if (!response.ok) {
+                throw new Error(`Formspree error: ${response.statusText}`);
+              }
+
+              // Handle the success response or redirect if needed
+              console.log('Form submitted successfully');
+
+              // Call the success handler
+              handleSuccess();
+            } catch (error) {
+              console.error('Form submission error:', error);
+            }
+          }}
+          className='cmFormContainer'
+        >
             <label htmlFor="email" className={`emailLabel ${isDarkMode ? 'darkModeText' : 'lightModeText'}`}>Your Email</label>
             <input id="email" type="email" name="email" className={isDarkMode ? 'inputDarkMode' : 'emailInput'} placeholder='abc@xyz.com' required/>
             <ValidationError prefix="Email" field="email" errors={state.errors} />
