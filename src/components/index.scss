@@ -149,7 +149,7 @@
 //Parent
 .parentContainer {
     width: 100%;
-    height: 4000px;
+    height: 3600px;
     cursor: pointer;
 }
 .darkModeParent {
@@ -648,7 +648,7 @@
 .footerDesign {
     opacity: 50%;
     width: 490px;
-    height: 340px;
+    height: 250px;
     position: absolute;
     top: 3355px;
     left: 80px;
@@ -818,6 +818,9 @@
         height: 295px;
     }
     @media (max-width: 1100px) {
+        .header {
+            gap: 18.3%;
+        }
         .ar {
             margin-left: 70px;
         }
@@ -917,7 +920,7 @@
                 width: 250px;
                 height: 275.27px;
                 position: absolute;
-                top: 285px;
+                top: 240px;
                 right: 35px;
             }
             .plMainContainer {
@@ -941,7 +944,26 @@
             }
             @media (max-width: 860px) {
                 .ar {
-                    margin-left: 50px;
+                    margin-left: 20px;
+                    font-size: 38px;
+                    width: 47px;
+                }
+                .navigationContainer {
+                    width: 237px;
+                    gap: 20px;
+                }
+                .about,
+                .ncProjects,
+                .contact,
+                .stack,
+                .mode {
+                    font-size: 15px;
+                }
+                .toggleIcon {
+                    width: 17px;
+                    height: 17px;
+                    order: 1;
+                    padding-top: 5px;
                 }
                 .bio1 {
                     padding-left: 30px;
@@ -969,11 +991,15 @@
                     margin-left: 30px;
                 }
                 @media (max-width: 840px) {
+                    .parentContainer {
+                        height: 1600px;
+                    }
+
                     .profilePicture {
                         display: none;
                     }
                     .introduction {
-                        height: 660px;
+                        height: 450px;
                     }
                     .biographyContainer {
                         gap: 0px;
@@ -1076,7 +1102,8 @@
                         font-size: 18px;
                         margin-left: 30px;
                     }
-                    .emailLabel, .messageLabel {
+                    .emailLabel,
+                    .messageLabel {
                         padding-left: 30px;
                     }
                     .cfButton {
@@ -1092,7 +1119,7 @@
                     .checkbox-container,
                     .checkbox-container-dark {
                         width: 85px;
-                        height: 25px; 
+                        height: 25px;
                         font-size: 10px;
                     }
                     .cmCheckboxHeader {
@@ -1108,9 +1135,13 @@
                     .flowerR {
                         width: 135px;
                         height: 190px;
-                        top: 2160px;
+                        top: 1480px;
                     }
-                    .fallingObject1, .fallingObject2, .fallingObject3, .fallingObject4, .fallingObject5 {
+                    .fallingObject1,
+                    .fallingObject2,
+                    .fallingObject3,
+                    .fallingObject4,
+                    .fallingObject5 {
                         height: 35px;
                         width: 80%;
                     }
@@ -1138,6 +1169,23 @@
                     }
                     .plMainContainer:hover {
                         transform: scale(1);
+                    }
+                    .pbRow2 {
+                        display: none;
+                    }
+                    .projectBody {
+                        height: 100%;
+                    }
+                    .projects {
+                        height: 645px;
+                    }
+                    @media (max-width: 580px) {
+                        .navigationContainer {
+                            gap: 10px;
+                        }
+                        .header {
+                            gap: 7.3%;
+                        }
                     }
                 }
             }

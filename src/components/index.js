@@ -61,7 +61,7 @@ function Index() {
     }, []);
 
     const styles = {
-        paddingTop: '155px',
+        paddingTop: '105px',
     };
 
     useEffect(() => {
@@ -72,21 +72,21 @@ function Index() {
         projectName: 'Risktech Web Design',
         stack: 'CSS',
         descriptionText: 'Risktech is a cutting-edge platform that acts as a bridge, facilitating connections between highly skilled professionals seeking reputable companies to collaborate with and esteemed companies in search of top-tier talent.',
-        projectLink: 'www.google.com'
+        projectLink: 'https://www.google.com'
     },
     {
         image: ChimaDemo,
         projectName: 'Chima-Demo Web Design',
         stack: 'CSS',
         descriptionText: "Chima-demo is a cloned desktop view of Chimamanda Adozie's personal website.",
-        projectLink: 'www.google.com'
+        projectLink: 'https://www.google.com'
     },
     {
-        image: RotimiPortfolio,
-        projectName: "Rotimi's Portfolio Web Design",
+        image: DataExpress,
+        projectName: "Data Express Web Design",
         stack: 'SCSS',
-        descriptionText: "Rotimi's Portfolio is a website that gives the first impression about me and my works and it serves a medium of reaching out to me",
-        projectLink: 'www.google.com'
+        descriptionText: "Data express is a platform for buying airtime and data, airtime can also be converted to cash",
+        projectLink: 'https://www.google.com'
     }
     ]
 
@@ -166,10 +166,10 @@ function Index() {
                                                 <div className='plDescription'>
                                                     <span className='plDescriptionText'>{project.descriptionText}</span>
                                                 </div>
-                                                <button className='plViewProject'><a href={project.projectLink}>View Project</a>
+                                                <button className='plViewProject'><a href={project.projectLink} target="_blank" rel="noopener noreferrer">View Project</a>
                                                     <svg width="24" height="24" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                                        <path d="M15.7656 10.5801L24.1528 12.409L22.3239 20.7962" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                        <path d="M9.84668 21.5918L24.0095 12.4999" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M15.7656 10.5801L24.1528 12.409L22.3239 20.7962" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+                                                        <path d="M9.84668 21.5918L24.0095 12.4999" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </button>
                                             </div>
@@ -177,21 +177,21 @@ function Index() {
                                 </div>
                                 <div className='pbRow2'>
                                     <div className='plMainContainer'>
-                                        <img src={DataExpress} alt='' className='plImage' />
+                                        <img src={RotimiPortfolio} alt='' className='plImage' />
                                         <div className='plDetailsContainer'>
-                                            <span className='projectName'>Data Express Web Design</span>
+                                            <span className='projectName'>Rotimi's Portfolio Web Design</span>
                                             <div className='plStacks'>
                                                 <span className='plReact'>React Js <span className='rectangleDesign'></span></span>
                                                 <span className='plReact'>SCSS <span className='rectangleDesign'></span></span>
                                                 <span className='plReact'>AntDesign Toolkit <span className='rectangleDesign'></span></span>
                                             </div>
                                             <div className='plDescription'>
-                                                <span className='plDescriptionText'>Data express is a platform for buying airtime and data, airtime can also be converted to cash</span>
+                                                <span className='plDescriptionText'>Rotimi's Portfolio is a website that gives the first impression about me and my works and it serves a medium of reaching out to me</span>
                                             </div>
-                                            <button className='plViewProject'><a href='www.google.com'>View Project</a>
+                                            <button className='plViewProject'><a href='https://www.google.com' target="_blank" rel="noopener noreferrer">View Project</a>
                                                 <svg width="24" height="24" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                                    <path d="M15.7656 10.5801L24.1528 12.409L22.3239 20.7962" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M9.84668 21.5918L24.0095 12.4999" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M15.7656 10.5801L24.1528 12.409L22.3239 20.7962" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M9.84668 21.5918L24.0095 12.4999" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" strokeLinejoin="round" />
                                                 </svg>
                                             </button>
                                         </div>
@@ -266,9 +266,9 @@ function Index() {
                                         whipping up animations, and coding interactive layouts that make people go "Wow!"
                                     </span>
                                     <div className='cmIconsContainer'>
-                                        <a href='www.github.com/RotataRojama'><img src={isDarkMode ? GithubIcon2 : GithubIcon} alt='' className='cmIcon' /></a>
-                                        <a href='www.linkedin.com/in/adegboro-rotimi'><img src={isDarkMode ? LinkedinIcon2 : LinkedinIcon} alt='' className='cmIcon' /></a>
-                                        <a href='www.x.com/Dannyadegboro'><img src={isDarkMode ? TwitterIcon2 : TwitterIcon} alt='' className='cmIcon' /></a>
+                                        <a href='https://www.github.com/RotataRojama' target="_blank" rel="noopener noreferrer"><img src={isDarkMode ? GithubIcon2 : GithubIcon} alt='' className='cmIcon' /></a>
+                                        <a href='https://www.linkedin.com/in/adegboro-rotimi' target="_blank" rel="noopener noreferrer"><img src={isDarkMode ? LinkedinIcon2 : LinkedinIcon} alt='' className='cmIcon' /></a>
+                                        <a href='https://www.x.com/Dannyadegboro' target="_blank" rel="noopener noreferrer"><img src={isDarkMode ? TwitterIcon2 : TwitterIcon} alt='' className='cmIcon' /></a>
                                     </div>
                                 </div>
                                 <ContactForm isDarkMode={isDarkMode} />
