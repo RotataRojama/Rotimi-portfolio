@@ -807,6 +807,9 @@
     align-items: center;
     font-size: 15px;
 }
+.navigationContainer.mobile {
+    display: none;
+}
 @media (max-width: 1250px) {
     .projectName {
         font-size: 17px;
@@ -1193,6 +1196,9 @@
                         }
                         .header {
                             gap: 7.3%;
+                        }
+                        .navigationContainer.mobile {
+                            display: block;
                         }
                     }
                 }

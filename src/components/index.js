@@ -31,6 +31,11 @@ function Index() {
     const [isStacksVisible, setStacksVisible] = useState(false);
     const [isContactVisible, setContactVisible] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
@@ -72,14 +77,14 @@ function Index() {
         projectName: 'Risktech Web Design',
         stack: 'CSS',
         descriptionText: 'Risktech is a cutting-edge platform that acts as a bridge, facilitating connections between highly skilled professionals seeking reputable companies to collaborate with and esteemed companies in search of top-tier talent.',
-        projectLink: 'https://www.google.com'
+        projectLink: 'https://risktech.netlify.app/'
     },
     {
         image: ChimaDemo,
         projectName: 'Chima-Demo Web Design',
         stack: 'CSS',
         descriptionText: "Chima-demo is a cloned desktop view of Chimamanda Adozie's personal website.",
-        projectLink: 'https://www.google.com'
+        projectLink: 'https://chima-demo.netlify.app/'
     },
     {
         image: DataExpress,
@@ -97,7 +102,16 @@ function Index() {
                     <span className={`ar ${isDarkMode ? 'darkModeText' : ''}`}>AR</span>
                     <span className={`logoDesign ${isDarkMode ? 'darkModeText' : ''}`}></span>
                 </div>
-                <div className='navigationContainer'>
+                <div className={`navigationContainer ${isMobile ? 'mobile' : 'desktop'}`}>
+                    {isMobile && (
+                        <div className='mobile-toggle' onClick={toggleMenu}>
+                            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 18H10" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+                                <path d="M4 12L16 12" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+                                <path d="M4 6L20 6" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
+                            </svg>
+                        </div>
+                    )}
                     <div className={`about ${isDarkMode ? 'darkModeText' : ''}`}><Link to="intro" smooth={true} duration={500}>About</Link></div>
                     <div className={`ncProjects ${isDarkMode ? 'darkModeText' : ''}`}><Link to="projects" smooth={true} duration={500}>Projects</Link></div>
                     <div className={`stack ${isDarkMode ? 'darkModeText' : ''}`}><Link to="stacks" smooth={true} duration={500}>Stacks</Link></div>
@@ -188,7 +202,7 @@ function Index() {
                                             <div className='plDescription'>
                                                 <span className='plDescriptionText'>Rotimi's Portfolio is a website that gives the first impression about me and my works and it serves a medium of reaching out to me</span>
                                             </div>
-                                            <button className='plViewProject'><a href='https://www.google.com' target="_blank" rel="noopener noreferrer">View Project</a>
+                                            <button className='plViewProject'><a href='https://rotimi-portfolio.netlify.app/' target="_blank" rel="noopener noreferrer">View Project</a>
                                                 <svg width="24" height="24" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" >
                                                     <path d="M15.7656 10.5801L24.1528 12.409L22.3239 20.7962" stroke="white" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                                                     <path d="M9.84668 21.5918L24.0095 12.4999" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" strokeLinejoin="round" />
