@@ -807,9 +807,7 @@
     align-items: center;
     font-size: 15px;
 }
-.navigationContainer.mobile {
-    display: none;
-}
+
 @media (max-width: 1250px) {
     .projectName {
         font-size: 17px;
@@ -1107,7 +1105,9 @@
                         width: 95%;
                     }
                     .emailInput,
-                    .messageInput, .inputDarkMode, .messageInputDark {
+                    .messageInput,
+                    .inputDarkMode,
+                    .messageInputDark {
                         width: 335px;
                         font-size: 18px;
                         margin-left: 30px;
@@ -1116,7 +1116,8 @@
                     .messageLabel {
                         padding-left: 30px;
                     }
-                    .cfButton, .cfButtonDark {
+                    .cfButton,
+                    .cfButtonDark {
                         margin-top: 35px;
                         width: 150px;
                         height: 40px;
@@ -1195,10 +1196,20 @@
                             gap: 10px;
                         }
                         .header {
-                            gap: 7.3%;
+                            gap: 20.3%;
                         }
-                        .navigationContainer.mobile {
-                            display: block;
+                        .logo {
+                            display: none;
+                        }
+                        .mobile-toggle {
+                            padding-left: 30px;
+                        }
+                        .mobile-toggle.active .hamburger-icon {
+                            transform: rotate(45deg);
+                        }
+
+                        .mobile-toggle.active .hamburger-icon::before {
+                            transform: rotate(-45deg);
                         }
                     }
                 }

@@ -32,19 +32,46 @@ function Index() {
     const [isContactVisible, setContactVisible] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 860);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    const closeMenu = () => {
+        setIsMenuOpen(false)
+    }
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
     };
-    const isMobile = window.innerWidth > 860;
-    const fall1 = isMobile ? 500 : 360;
-    const fall2 = isMobile ? 400 : 290;
-    const fall3 = isMobile ? 300 : 220;
-    const fall4 = isMobile ? 200 : 160;
+    const navigationLinks = (
+        <>
+            <div className={`about ${isDarkMode ? 'darkModeText' : ''}`}>
+                <Link to="intro" smooth={true} duration={500} onClick={closeMenu}>
+                    About
+                </Link>
+            </div>
+            <div className={`ncProjects ${isDarkMode ? 'darkModeText' : ''}`}>
+                <Link to="projects" smooth={true} duration={500} onClick={closeMenu}>
+                    Projects
+                </Link>
+            </div>
+            <div className={`stack ${isDarkMode ? 'darkModeText' : ''}`}>
+                <Link to="stacks" smooth={true} duration={500} onClick={closeMenu}>
+                    Stacks
+                </Link>
+            </div>
+            <div className={`contact ${isDarkMode ? 'darkModeText' : ''}`}>
+                <Link to="contact" smooth={true} duration={500} onClick={closeMenu}>
+                    Contact
+                </Link>
+            </div>
+        </>
+    );
+    const fall1 = isMobile ? 360 : 500;
+    const fall2 = isMobile ? 290 : 400;
+    const fall3 = isMobile ? 220 : 300;
+    const fall4 = isMobile ? 160 : 200;
 
     const controls = useAnimation();
     const timerControls = useAnimation();
@@ -59,9 +86,17 @@ function Index() {
         const timerId = setTimeout(() => {
             timerControls.stop();
         }, 5000);
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 600);
+        };
+
+        window.addEventListener('resize', handleResize);
+
         return () => {
             clearInterval(interval);
             clearTimeout(timerId);
+            window.removeEventListener('resize', handleResize);
         };
     }, [startAnimation, timerControls]);
 
@@ -72,6 +107,7 @@ function Index() {
     useEffect(() => {
         timerControls.start({ rotate: 360, transition: { duration: 5 } });
     }, [timerControls]);
+
     const project = [{
         image: Risktech,
         projectName: 'Risktech Web Design',
@@ -91,31 +127,37 @@ function Index() {
         projectName: "Data Express Web Design",
         stack: 'SCSS',
         descriptionText: "Data express is a platform for buying airtime and data, airtime can also be converted to cash",
-        projectLink: 'https://www.google.com'
+        projectLink: 'https://github.com/Mykel-AG/data-expresss'
     }
     ]
 
     return (
         <div className={`parentContainer ${isDarkMode ? 'darkModeParent' : 'lightModeParent'}`}>
             <div className='header'>
+                <div className={`navigationContainer ${isMobile ? 'mobile' : 'desktop'}`}>
+
+                    {isMobile && (
+                        <div className='mobile-toggle' onClick={toggleMenu}>
+                            {isMenuOpen ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="20px" height="20px">
+                                    <path d="M 7 4 C 6.744125 4 6.4879687 4.0974687 6.2929688 4.2929688 L 4.2929688 6.2929688 C 3.9019687 6.6839688 3.9019687 7.3170313 4.2929688 7.7070312 L 11.585938 15 L 4.2929688 22.292969 C 3.9019687 22.683969 3.9019687 23.317031 4.2929688 23.707031 L 6.2929688 25.707031 C 6.6839688 26.098031 7.3170313 26.098031 7.7070312 25.707031 L 15 18.414062 L 22.292969 25.707031 C 22.682969 26.098031 23.317031 26.098031 23.707031 25.707031 L 25.707031 23.707031 C 26.098031 23.316031 26.098031 22.682969 25.707031 22.292969 L 18.414062 15 L 25.707031 7.7070312 C 26.098031 7.3170312 26.098031 6.6829688 25.707031 6.2929688 L 23.707031 4.2929688 C 23.316031 3.9019687 22.682969 3.9019687 22.292969 4.2929688 L 15 11.585938 L 7.7070312 4.2929688 C 7.5115312 4.0974687 7.255875 4 7 4 z"
+                                        stroke={isDarkMode ? 'white' : '#000000'} />
+                                </svg>
+                            ) : (
+                                <svg className="hamburger-icon" width="18px" height="18px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 18H10" stroke={isDarkMode ? 'white' : '#000000'} strokeWidth="2" strokeLinecap="round" />
+                                    <path d="M4 12L16 12" stroke={isDarkMode ? 'white' : '#000000'} strokeWidth="2" strokeLinecap="round" />
+                                    <path d="M4 6L20 6" stroke={isDarkMode ? 'white' : '#000000'} strokeWidth="2" strokeLinecap="round" />
+                                </svg>
+                            )}
+                        </div>
+                    )}
+                    {!isMobile && navigationLinks}
+                    {isMobile && isMenuOpen && navigationLinks}
+                </div>
                 <div className='logo'>
                     <span className={`ar ${isDarkMode ? 'darkModeText' : ''}`}>AR</span>
                     <span className={`logoDesign ${isDarkMode ? 'darkModeText' : ''}`}></span>
-                </div>
-                <div className={`navigationContainer ${isMobile ? 'mobile' : 'desktop'}`}>
-                    {isMobile && (
-                        <div className='mobile-toggle' onClick={toggleMenu}>
-                            <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 18H10" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
-                                <path d="M4 12L16 12" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
-                                <path d="M4 6L20 6" stroke="#000000" strokeWidth="2" strokeLinecap="round" />
-                            </svg>
-                        </div>
-                    )}
-                    <div className={`about ${isDarkMode ? 'darkModeText' : ''}`}><Link to="intro" smooth={true} duration={500}>About</Link></div>
-                    <div className={`ncProjects ${isDarkMode ? 'darkModeText' : ''}`}><Link to="projects" smooth={true} duration={500}>Projects</Link></div>
-                    <div className={`stack ${isDarkMode ? 'darkModeText' : ''}`}><Link to="stacks" smooth={true} duration={500}>Stacks</Link></div>
-                    <div className={`contact ${isDarkMode ? 'darkModeText' : ''}`}><Link to="contact" smooth={true} duration={500}>Contact</Link></div>
                 </div>
                 <div className='toggle' onClick={toggleDarkMode}>
                     <span className={`mode ${isDarkMode ? 'darkModeText' : ''}`}>{isDarkMode ? 'Dark' : 'Light'}</span>
